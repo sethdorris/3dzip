@@ -19,6 +19,7 @@ var UploadComponent = (function () {
         this.JsonService = DataService;
         this.router = _router;
     }
+    UploadComponent.prototype.drag = function () { console.log("hi"); };
     UploadComponent.prototype.getFile = function () {
         var _this = this;
         var Zipper = new jszip();
@@ -56,14 +57,15 @@ var UploadComponent = (function () {
             data.miracle_config.doRaft === true &&
             data.miracle_config.doSupport === true &&
             (data.miracle_config.layerHeight >= .2 && data.miracle_config.layerHeight <= .3) &&
-            data.miracle_config.infillDensity <= .1) {
+            data.miracle_config.infillDensity <= .1 &&
+            data.extrusion_mass_g < 100) {
             this.router.navigate(['/success']);
         }
     };
     UploadComponent = __decorate([
         core_1.Component({
             selector: 'upload',
-            template: "\n            <div class=\"container\">\n                <h1>3D Model Checkup</h1>\n                <input type=\"file\" id=\"myfile\" class=\"form-control\" />\n\t            <button id=\"submit\" (click)=\"getFile()\">Submit</button>\n            </div>\n    "
+            template: "\n            <div class=\"container\">\n                    <h1 class=\"title\">3D Model Checkup</h1>\n                <div class=\"manual-upload\">\n                    Upload Your .markerbot file here!    \n                    <input type=\"file\" id=\"myfile\" class=\"form-control\" />\n\t                <button class=\"btn btn-default btn-primary\" id=\"submit\" (click)=\"getFile()\">Submit</button>\n                </div>\n            </div>\n    "
         }), 
         __metadata('design:paramtypes', [JsonDataService_1.JsonDataService, router_1.Router])
     ], UploadComponent);

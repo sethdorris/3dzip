@@ -1,5 +1,52 @@
-﻿body {
+﻿.title {
+    color: #4099e6;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 4%;
 }
+
+.firstname {
+    display: inline-block
+}
+
+#projectdescription {
+    height: 25%;
+}
+
+.nextButtonGroup {
+    text-align: center;
+}
+
+#form-next-btn {
+    width: 25%;
+}
+
+.lastname {
+    display: inline-block;
+    float: right;
+}
+
+.subtitle {
+    color: #4099e6;
+    text-align: center;
+    font-size: 14pt;
+    margin-bottom: 3%;
+}
+
+.main-form {
+    color: #4099e6;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#form-firstname {
+    display: inline-block;
+}
+
+#form-lastname {
+    display: inline-block;
+}
+
 
 .failed-header {
     text-align: center;
@@ -27,4 +74,47 @@
 .items-container {
     width: 30%;
     margin: 0 auto;
+}
+
+.manual-upload {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    color: #4099e6;
+}
+
+.drag-upload {
+    background-color: #efefef;
+    width: 50%;
+    height: 25%;
+    border: 1px solid #cecece;
+    margin: 0 auto;
+    margin-bottom: 38px;
+    border-radius: 5px;
+}
+
+#submit {
+    margin-top: 4%;
+    width: 30%;
+}
+
+.manual-upload > h1 {
+    margin-bottom: 12%;
+}
+
+.item > h6 {
+    display: none;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.table > h5 {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #4099e6;
 }

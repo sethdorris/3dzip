@@ -1,13 +1,16 @@
 ﻿<div class="container">
-    <h1>3D Model Checkup</h1>
-    <h3>We just need a little info to get started</h3>
-    <div>hi</div>
-    <div class="">
+    <h1 class="title">3D Model Checkup</h1>
+    <h3 class="subtitle">We just need a little info to get started</h3>
+    <div class="main-form">
         <div class="form-group">
-            First Name:
-            <input class="form-control" type="text" />
-            Last Name:
-            <input class="form-control" type="text" />
+            <div class="firstname">
+                First Name:
+                <input class="form-control" id="form-firstname" type="text" />
+            </div>
+            <div class="lastname">
+                Last Name:
+                <input class="form-control" id="form-lastname" type="text" />
+            </div>
         </div>
         <div class="form-group">
             PSU Email:
@@ -39,10 +42,10 @@
         </div>
         <div class="form-group">
             Brief Description of Project (1 or 2 sentences):
-            <textarea class="form-control"></textarea>
+            <textarea class="form-control" id="projectdescription"></textarea>
         </div>
-        <div class="form-group">
-            <button class="btn btn-default btn-primary" (click)="infoNextBtn()">Next</button>
+        <div class="form-group nextButtonGroup">
+            <button class="btn btn-default btn-primary" id="form-next-btn" (click)="infoNextBtn()">Next</button>
         </div>
     </div>
 </div>

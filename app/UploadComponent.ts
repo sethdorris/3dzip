@@ -8,9 +8,12 @@ var jszip = require("jszip");
     selector: 'upload',
     template: `
             <div class="container">
-                <h1>3D Model Checkup</h1>
-                <input type="file" id="myfile" class="form-control" />
-	            <button id="submit" (click)="getFile()">Submit</button>
+                    <h1 class="title">3D Model Checkup</h1>
+                <div class="manual-upload">
+                    Upload Your .markerbot file here!    
+                    <input type="file" id="myfile" class="form-control" />
+	                <button class="btn btn-default btn-primary" id="submit" (click)="getFile()">Submit</button>
+                </div>
             </div>
     `
 })
@@ -21,6 +24,8 @@ export class UploadComponent {
         this.JsonService = DataService;
         this.router = _router;
     }
+
+    drag() { console.log("hi") }
     getFile() {
         let Zipper = new jszip();
         var FileInput: any = document.getElementById('myfile');
@@ -62,7 +67,8 @@ export class UploadComponent {
             data.miracle_config.doRaft === true &&
             data.miracle_config.doSupport === true &&
             (data.miracle_config.layerHeight >= .2 && data.miracle_config.layerHeight <= .3) &&
-            data.miracle_config.infillDensity <= .1
+            data.miracle_config.infillDensity <= .1 &&
+            data.extrusion_mass_g < 100
         ) {
             this.router.navigate(['/success']);
         }

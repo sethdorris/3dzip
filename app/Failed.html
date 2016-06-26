@@ -6,28 +6,28 @@
     </div>
     <div class="items-container">
         <div class="item-group">
-            <div class="item">Printer Type:</div><div class="status" id="printertype"></div>
+            <div class="item">PRINTER TYPE:</div><div class="status" id="printertype" (click)="elementInfo($event)"></div><h6 *ngIf="showPrinter">{{data.bot_type}}</h6>
         </div>
         <div class="item-group">
-            <div class="item">Material:</div><div class="status" id="material"></div>
+            <div class="item">MATERIAL:</div><div class="status" id="material" (click)="elementInfo($event)"></div>
         </div>
         <div class="item-group">
-            <div class="item">Extrusion Mass:</div><div class="status" id="extrusionmass"></div>
+            <div class="item">EXTRUSION MASS:</div><div class="status" id="extrusionmass" (click)="elementInfo($event)"></div>
         </div>
         <div class="item-group">
-            <div class="item">Rafts:</div><div class="status" id="rafts"></div>
+            <div class="item">RAFTS:</div><div class="status" id="rafts" (click)="elementInfo($event)"></div><h6 *ngIf="showRafts">{{data.miracle_config.doRaft}}</h6>
         </div>
         <div class="item-group">
-            <div class="item">Supports:</div><div class="status" id="supports"></div>
+            <div class="item">SUPPORTS:</div><div class="status" id="supports" (click)="elementInfo($event)"></div>
         </div>
         <div class="item-group">
-            <div class="item">Layer Height:</div><div class="status" id="layerheight"></div>
+            <div class="item">LAYER HEIGHT:</div><div class="status" id="layerheight" (click)="elementInfo($event)"></div>
         </div>
         <div class="item-group">
-            <div class="item">Infill:</div><div class="status" id="infill"></div>
+            <div class="item">INFILL:</div><div class="status" id="infill" (click)="elementInfo($event)"></div>
         </div>
         <div class="item-group">
-            <div class="item">Extruder:</div><div class="status" id="extruder"></div>
+            <div class="item">EXTRUDER:</div><div class="status" id="extruder" (click)="elementInfo($event)"></div>
         </div>
     </div>
 </div>

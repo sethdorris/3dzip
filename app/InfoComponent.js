@@ -21,7 +21,7 @@ var InfoComponent = (function () {
     InfoComponent = __decorate([
         core_1.Component({
             selector: 'info',
-            template: "\n        <div>hi {{1 + 1}}</div>\n    ",
+            templateUrl: './app/Info.html',
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [router_1.Router])

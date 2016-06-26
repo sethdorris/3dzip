@@ -17,7 +17,10 @@ var FailedComponent = (function () {
         this.JsonService = dataService;
         this.data = this.JsonService.getData();
         this.file = this.JsonService.getFileName();
+        this.statusElements = [];
         console.log(this.file);
+        this.showPrinter = false;
+        this.showRafts = false;
     }
     FailedComponent.prototype.ngOnInit = function () {
         var printerStatus = document.getElementById("printertype");
@@ -28,47 +31,71 @@ var FailedComponent = (function () {
         var infillStatus = document.getElementById("infill");
         var extruderStatus = document.getElementById("extruder");
         var materialStatus = document.getElementById("material");
+        this.statusElements.push(printerStatus);
+        this.statusElements.push(extrusionStatus);
+        this.statusElements.push(raftsStatus);
+        this.statusElements.push(layerStatus);
+        this.statusElements.push(supportsStatus);
+        this.statusElements.push(infillStatus);
+        this.statusElements.push(extruderStatus);
+        this.statusElements.push(materialStatus);
+        console.log(this.statusElements);
         this.data.machine_config.extruder_profiles.attached_extruders.forEach(function (item) {
             if (item.id !== 8 || item.calibrated == false) {
                 console.log(extruderStatus);
-                extruderStatus.style.backgroundColor = "lightgreen";
+                extruderStatus.style.backgroundColor = "greenyellow";
             }
         });
         if (this.data.bot_type == "replicator_5") {
-            printerStatus.style.backgroundColor = "lightgreen";
+            printerStatus.style.backgroundColor = "greenyellow";
         }
         else {
             printerStatus.style.backgroundColor = "red";
         }
         if (this.data.miracle_config.doRaft == true) {
-            raftsStatus.style.backgroundColor = "lightgreen";
+            raftsStatus.style.backgroundColor = "greenyellow";
         }
         else {
             raftsStatus.style.backgroundColor = "red";
         }
         if (this.data.miracle_config.doSupport == true) {
-            supportsStatus.style.backgroundColor = "lightgreen";
+            supportsStatus.style.backgroundColor = "greenyellow";
         }
         else {
             supportsStatus.style.backgroundColor = "red";
         }
         if (this.data.miracle_config.layerHeight >= .2 && this.data.miracle_config.layerHeight <= .3) {
-            layerStatus.style.backgroundColor = "lightgreen";
+            layerStatus.style.backgroundColor = "greenyellow";
         }
         else {
             layerStatus.style.backgroundColor = "red";
         }
         if (this.data.miracle_config.infillDensity <= .1) {
-            infillStatus.style.backgroundColor = "lightgreen";
+            infillStatus.style.backgroundColor = "greenyellow";
         }
         else {
             infillStatus.style.backgroundColor = "red";
         }
         if (this.data.material == "PLA") {
-            materialStatus.style.backgroundColor = "lightgreen";
+            materialStatus.style.backgroundColor = "greenyellow";
         }
         else {
             materialStatus.style.backgroundColor = "red";
+        }
+        if (this.data.extrusion_mass_g < 100) {
+            extrusionStatus.style.backgroundColor = "greenyellow";
+        }
+        else {
+            extrusionStatus.style.backgroundColor = "red";
+        }
+    };
+    FailedComponent.prototype.elementInfo = function (e) {
+        console.log(e);
+        switch (e.target.id) {
+            case "printertype":
+                this.showPrinter = true;
+            case "rafts":
+                this.showRafts = true;
         }
     };
     FailedComponent = __decorate([

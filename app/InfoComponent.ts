@@ -3,9 +3,7 @@ import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
     selector: 'info',
-    template: `
-        <div>hi {{1 + 1}}</div>
-    `,
+    templateUrl: './app/Info.html',
     directives: [ROUTER_DIRECTIVES]
 })
 export class InfoComponent {
