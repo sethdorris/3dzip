@@ -19,10 +19,62 @@ var FailedComponent = (function () {
         this.file = this.JsonService.getFileName();
         console.log(this.file);
     }
+    FailedComponent.prototype.ngOnInit = function () {
+        var printerStatus = document.getElementById("printertype");
+        var extrusionStatus = document.getElementById("extrusionmass");
+        var raftsStatus = document.getElementById("rafts");
+        var layerStatus = document.getElementById("layerheight");
+        var supportsStatus = document.getElementById("supports");
+        var infillStatus = document.getElementById("infill");
+        var extruderStatus = document.getElementById("extruder");
+        var materialStatus = document.getElementById("material");
+        this.data.machine_config.extruder_profiles.attached_extruders.forEach(function (item) {
+            if (item.id !== 8 || item.calibrated == false) {
+                console.log(extruderStatus);
+                extruderStatus.style.backgroundColor = "lightgreen";
+            }
+        });
+        if (this.data.bot_type == "replicator_5") {
+            printerStatus.style.backgroundColor = "lightgreen";
+        }
+        else {
+            printerStatus.style.backgroundColor = "red";
+        }
+        if (this.data.miracle_config.doRaft == true) {
+            raftsStatus.style.backgroundColor = "lightgreen";
+        }
+        else {
+            raftsStatus.style.backgroundColor = "red";
+        }
+        if (this.data.miracle_config.doSupport == true) {
+            supportsStatus.style.backgroundColor = "lightgreen";
+        }
+        else {
+            supportsStatus.style.backgroundColor = "red";
+        }
+        if (this.data.miracle_config.layerHeight >= .2 && this.data.miracle_config.layerHeight <= .3) {
+            layerStatus.style.backgroundColor = "lightgreen";
+        }
+        else {
+            layerStatus.style.backgroundColor = "red";
+        }
+        if (this.data.miracle_config.infillDensity <= .1) {
+            infillStatus.style.backgroundColor = "lightgreen";
+        }
+        else {
+            infillStatus.style.backgroundColor = "red";
+        }
+        if (this.data.material == "PLA") {
+            materialStatus.style.backgroundColor = "lightgreen";
+        }
+        else {
+            materialStatus.style.backgroundColor = "red";
+        }
+    };
     FailedComponent = __decorate([
         core_1.Component({
             selector: 'failed',
-            template: "\n            <div class=\"container\">\n                <h1>3D Model Checkup</h1>\n                \n            </div>\n            "
+            templateUrl: './app/Failed.html'
         }), 
         __metadata('design:paramtypes', [JsonDataService_1.JsonDataService, router_1.Router])
     ], FailedComponent);

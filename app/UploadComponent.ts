@@ -51,18 +51,21 @@ export class UploadComponent {
     }
     routeHandler(data: any) {
         data.machine_config.extruder_profiles.attached_extruders.forEach((item) => {
-            if (item.id !== 8) {
+            if (item.id !== 8 || item.calibrated == false) {
                 this.router.navigate(['/failed']);
             }
         })
 
-        //if (
-        //    data.bot_type == "replicator_5" &&
-        //    data.material == "PLA" &&
-        //    data.miracle_config.doRaft === true &&
-        //    data.miracle_config.doSupport === true &&
-        //    (data.miracle_config.layerHeight >= .2 && data.miracle_config.layerHeight <= .3) &&
-        //    data.miracle_config.infillDensity <= .1 &&
-        //    data.machine_config.extruder_profiles.
+        if (
+            data.bot_type == "replicator_5" &&
+            data.material == "PLA" &&
+            data.miracle_config.doRaft === true &&
+            data.miracle_config.doSupport === true &&
+            (data.miracle_config.layerHeight >= .2 && data.miracle_config.layerHeight <= .3) &&
+            data.miracle_config.infillDensity <= .1
+        ) {
+            this.router.navigate(['/success']);
+        }
+            
     }
 } 

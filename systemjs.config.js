@@ -17,7 +17,7 @@
         'app': { main: 'main.js', defaultExtension: 'js' },
         'rxjs': { defaultExtension: 'js' },
         'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
-        'jszip': { main: 'jszip.min.js', defaultExtension: 'js' },
+        'jszip': { main: 'jszip.js', defaultExtension: 'js' },
         'jquery': {main: 'jquery.min.js', defaultExtension: 'js'}
     };
     var ngPackageNames = [

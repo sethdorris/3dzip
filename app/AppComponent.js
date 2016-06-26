@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var JsonDataService_1 = require('./JsonDataService');
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -17,7 +18,8 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'app',
             template: "\n            <router-outlet></router-outlet>\n            ",
-            directives: [router_1.ROUTER_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [JsonDataService_1.JsonDataService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
