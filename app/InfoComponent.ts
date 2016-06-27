@@ -26,15 +26,11 @@ export class InfoComponent implements OnInit {
     }
 
     ngOnInit() {
-        var EnableButton = true;
-        for (var key in this.FormInfo) {
-            if (this.FormInfo[key] == null) {
-                EnableButton = false;
-            }
-        }
-        if (EnableButton) {
-            (<HTMLButtonElement>document.getElementById("form-next-btn")).disabled = false;
-        }
+
+    }
+
+    validateForm() {
+        console.log("Hi");
     }
 
     infoNextBtn() {

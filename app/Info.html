@@ -5,7 +5,7 @@
         <div class="form-group">
             <div class="firstname">
                 First Name:
-                <input class="form-control" id="form-firstname" type="text" [(ngModel)]="FormInfo.FirstName" required/>
+                <input class="form-control" id="form-firstname" type="text" [(ngModel)]="FormInfo.FirstName" (ngModelChange)="validateForm()" required/>
             </div>
             <div class="lastname">
                 Last Name:

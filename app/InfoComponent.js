@@ -26,15 +26,9 @@ var InfoComponent = (function () {
         };
     }
     InfoComponent.prototype.ngOnInit = function () {
-        var EnableButton = true;
-        for (var key in this.FormInfo) {
-            if (this.FormInfo[key] == null) {
-                EnableButton = false;
-            }
-        }
-        if (EnableButton) {
-            document.getElementById("form-next-btn").disabled = false;
-        }
+    };
+    InfoComponent.prototype.validateForm = function () {
+        console.log("Hi");
     };
     InfoComponent.prototype.infoNextBtn = function () {
         console.log("clicked");
