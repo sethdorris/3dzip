@@ -96,7 +96,6 @@ var FailedComponent = (function () {
             extrusionStatus.style.backgroundColor = "red";
         }
         var FormData = this.formService.getFormData();
-        window.open('mailto:sethc.dorris@gmail.com?subject=3dprinterResults&body=' + JSON.stringify(FormData));
     };
     FailedComponent.prototype.elementInfo = function (e) {
         console.log(e);

@@ -107,7 +107,7 @@ export class FailedComponent implements OnInit {
 
         var FormData = this.formService.getFormData();
         
-        window.open('mailto:sethc.dorris@gmail.com?subject=3dprinterResults&body=' + JSON.stringify(FormData));
+
 
     }
     elementInfo(e) {
