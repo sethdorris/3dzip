@@ -111,22 +111,22 @@ export class FailedComponent implements OnInit {
             case "rafts":
                 this.showRafts = true;
                 break;
-            case "extrusionmass"
+            case "extrusionmass":
                 this.showExtrusionMass = true;
                 break;
-            case "layerheight"
+            case "layerheight":
                 this.showLayer = true;
                 break;
-            case "supports"
+            case "supports":
                 this.showSupport = true;
                 break;
             case "infill":
                 this.showInfill = true;
                 break;
-            case "extruder"
+            case "extruder":
                 this.showExtruder = true;
                 break;
-            case "material"
+            case "material":
                 this.showMaterial = true;
                 break;
             default: break;
