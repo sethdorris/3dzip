@@ -16,15 +16,26 @@ var InfoComponent = (function () {
         this.router = _router;
         this.formService = _formService;
         this.FormInfo = {
-            FirstName: "",
-            LastName: "",
-            Email: "",
-            PersonType: "",
-            Campus: "",
-            Purpose: "",
-            Description: ""
+            FirstName: null,
+            LastName: null,
+            Email: null,
+            PersonType: null,
+            Campus: null,
+            Purpose: null,
+            Description: null
         };
     }
+    InfoComponent.prototype.ngOnInit = function () {
+        var EnableButton = true;
+        for (var key in this.FormInfo) {
+            if (this.FormInfo[key] == null) {
+                EnableButton = false;
+            }
+        }
+        if (EnableButton) {
+            document.getElementById("form-next-btn").disabled = false;
+        }
+    };
     InfoComponent.prototype.infoNextBtn = function () {
         console.log("clicked");
         var FormResult = this.formService.setFormData(this.FormInfo);
