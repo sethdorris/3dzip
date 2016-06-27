@@ -1,5 +1,6 @@
 ﻿import {Component} from '@angular/core';
 import {Router, ROUTER_DIRECTIVES} from '@angular/router';
+import {FormService} from './FormService';
 
 @Component({
     selector: 'info',
@@ -8,11 +9,26 @@ import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 })
 export class InfoComponent {
     router: Router;
-    constructor(_router: Router) {
+    FormInfo: Object;
+    formService: FormService;
+    constructor(_formService: FormService, _router: Router) {
         this.router = _router;
+        this.formService = _formService;
+        this.FormInfo = {
+            FirstName: "",
+            LastName: "",
+            Email: "",
+            PersonType: "",
+            Campus: "",
+            Purpose: "",
+            Description: ""
+        }
     }
     infoNextBtn() {
         console.log("clicked");
-        this.router.navigate(['/upload']);
+        var FormResult = this.formService.setFormData(this.FormInfo);
+        console.log(FormResult);
+
+        //this.router.navigate(['/upload']);
     }
 };

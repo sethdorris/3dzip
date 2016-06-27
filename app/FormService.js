@@ -9,23 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var JsonDataService_1 = require('./JsonDataService');
-var FormService_1 = require('./FormService');
-var AppComponent = (function () {
-    function AppComponent() {
+var FormService = (function () {
+    function FormService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'app',
-            template: "\n            <router-outlet></router-outlet>\n            ",
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [JsonDataService_1.JsonDataService, FormService_1.FormService]
-        }), 
+    FormService.prototype.setFormData = function (data) {
+        this.FormData = data;
+        return this.FormData;
+    };
+    FormService.prototype.getFormData = function () {
+        return this.FormData;
+    };
+    FormService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], FormService);
+    return FormService;
 }());
-exports.AppComponent = AppComponent;
-;
-//# sourceMappingURL=AppComponent.js.map
+exports.FormService = FormService;
+//# sourceMappingURL=FormService.js.map
