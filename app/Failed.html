@@ -1,33 +1,33 @@
 ﻿<div class="container">
     <div class="failed-header">
-        <h1>3D Model Checkup</h1>
-        <h3>Checkup results for {{file}}</h3>
+        <h1 class="title">3D Model Checkup</h1>
+        <h3 class="subtitle">Checkup results for {{file}}</h3>
         <h5>Click any red circles for recommendations</h5>
     </div>
     <div class="items-container">
         <div class="item-group">
-            <div class="item">PRINTER TYPE:</div><div class="status" id="printertype" (click)="elementInfo($event)"></div><h6 *ngIf="showPrinter">{{data.bot_type}}</h6>
+            <div class="item">PRINTER TYPE:</div><div class="status" id="printertype" (click)="elementInfo($event)"></div><h6 *ngIf="showPrinter">Your printer type: {{data.bot_type}}</h6>
         </div>
         <div class="item-group">
-            <div class="item">MATERIAL:</div><div class="status" id="material" (click)="elementInfo($event)"></div>
+            <div class="item">MATERIAL:</div><div class="status" id="material" (click)="elementInfo($event)"></div><h6 *ngIf="showMaterial">Your material is {{data.material}}</h6>
         </div>
         <div class="item-group">
-            <div class="item">EXTRUSION MASS:</div><div class="status" id="extrusionmass" (click)="elementInfo($event)"></div>
+            <div class="item">EXTRUSION MASS:</div><div class="status" id="extrusionmass" (click)="elementInfo($event)"></div><h6 *ngIf="showExtrusionMass">Extrusion Mass {{data.extrusion_mass_g}}g</h6>
         </div>
         <div class="item-group">
-            <div class="item">RAFTS:</div><div class="status" id="rafts" (click)="elementInfo($event)"></div><h6 *ngIf="showRafts">{{data.miracle_config.doRaft}}</h6>
+            <div class="item">RAFTS:</div><div class="status" id="rafts" (click)="elementInfo($event)"></div><h6 *ngIf="showRafts">Rafts were set to {{data.miracle_config.doRaft}}</h6>
         </div>
         <div class="item-group">
-            <div class="item">SUPPORTS:</div><div class="status" id="supports" (click)="elementInfo($event)"></div>
+            <div class="item">SUPPORTS:</div><div class="status" id="supports" (click)="elementInfo($event)"></div><h6 *ngIf="showSupport">Supports was set to {{data.miracle_config.doSupport}}</h6>
         </div>
         <div class="item-group">
-            <div class="item">LAYER HEIGHT:</div><div class="status" id="layerheight" (click)="elementInfo($event)"></div>
+            <div class="item">LAYER HEIGHT:</div><div class="status" id="layerheight" (click)="elementInfo($event)"></div><h6 *ngIf="showLayer">Your Layer Height is {{data.miracle_config.layerHeight}}</h6>
         </div>
         <div class="item-group">
-            <div class="item">INFILL:</div><div class="status" id="infill" (click)="elementInfo($event)"></div>
+            <div class="item">INFILL:</div><div class="status" id="infill" (click)="elementInfo($event)"></div><h6 *ngIf="showInfill">Your Infill density is {{data.miracle_config.infillDensity}} </h6>
         </div>
         <div class="item-group">
-            <div class="item">EXTRUDER:</div><div class="status" id="extruder" (click)="elementInfo($event)"></div>
+            <div class="item">EXTRUDER:</div><div class="status" id="extruder" (click)="elementInfo($event)"></div><h6 *ngIf="showExtruder">Please recheck attached extruders in your extruder profiles.</h6>
         </div>
     </div>
 </div>

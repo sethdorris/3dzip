@@ -21,6 +21,11 @@ var FailedComponent = (function () {
         console.log(this.file);
         this.showPrinter = false;
         this.showRafts = false;
+        this.showExtrusionMass = false;
+        this.showExtruder = false;
+        this.showSupport = false;
+        this.showInfill = false;
+        this.showMaterial = false;
     }
     FailedComponent.prototype.ngOnInit = function () {
         var printerStatus = document.getElementById("printertype");
@@ -94,8 +99,29 @@ var FailedComponent = (function () {
         switch (e.target.id) {
             case "printertype":
                 this.showPrinter = true;
+                break;
             case "rafts":
                 this.showRafts = true;
+                break;
+            case "extrusionmass":
+                this.showExtrusionMass = true;
+                break;
+            case "layerheight":
+                this.showLayer = true;
+                break;
+            case "supports":
+                this.showSupport = true;
+                break;
+            case "infill":
+                this.showInfill = true;
+                break;
+            case "extruder":
+                this.showExtruder = true;
+                break;
+            case "material":
+                this.showMaterial = true;
+                break;
+            default: break;
         }
     };
     FailedComponent = __decorate([

@@ -15,6 +15,11 @@ export class FailedComponent implements OnInit {
     showPrinter: boolean;
     showExtrusionMass: boolean;
     showRafts: boolean;
+    showExtruder: boolean;
+    showLayer: boolean;
+    showSupport: boolean;
+    showInfill: boolean;
+    showMaterial: boolean;
 
 
     constructor(dataService: JsonDataService, _router: Router) {
@@ -26,6 +31,11 @@ export class FailedComponent implements OnInit {
         console.log(this.file);
         this.showPrinter = false;
         this.showRafts = false;
+        this.showExtrusionMass = false;
+        this.showExtruder = false;
+        this.showSupport = false;
+        this.showInfill = false;
+        this.showMaterial = false;
     }
 
     ngOnInit() {
@@ -97,8 +107,29 @@ export class FailedComponent implements OnInit {
         switch (e.target.id) {
             case "printertype":
                 this.showPrinter = true;
+                break;
             case "rafts":
                 this.showRafts = true;
+                break;
+            case "extrusionmass"
+                this.showExtrusionMass = true;
+                break;
+            case "layerheight"
+                this.showLayer = true;
+                break;
+            case "supports"
+                this.showSupport = true;
+                break;
+            case "infill":
+                this.showInfill = true;
+                break;
+            case "extruder"
+                this.showExtruder = true;
+                break;
+            case "material"
+                this.showMaterial = true;
+                break;
+            default: break;
         }
     }
 }

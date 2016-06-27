@@ -93,6 +93,14 @@
     border-radius: 5px;
 }
 
+.status:hover {
+    cursor: pointer;
+}
+
+.failed-header > h5 {
+    color: #4099e6;
+}
+
 #submit {
     margin-top: 4%;
     width: 30%;
