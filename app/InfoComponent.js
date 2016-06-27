@@ -28,13 +28,17 @@ var InfoComponent = (function () {
     InfoComponent.prototype.ngOnInit = function () {
     };
     InfoComponent.prototype.validateForm = function () {
-        console.log("Hi");
+        var enableButton = true;
+        for (var key in this.FormInfo) {
+            if (this.FormInfo[key] == null) {
+                enableButton = false;
+            }
+        }
+        enableButton ? document.getElementById("form-next-btn").disabled = false : document.getElementById("form-next-btn").disabled = true;
     };
     InfoComponent.prototype.infoNextBtn = function () {
-        console.log("clicked");
         var FormResult = this.formService.setFormData(this.FormInfo);
-        console.log(FormResult);
-        //this.router.navigate(['/upload']);
+        this.router.navigate(['/upload']);
     };
     InfoComponent = __decorate([
         core_1.Component({

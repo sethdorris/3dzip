@@ -30,14 +30,17 @@ export class InfoComponent implements OnInit {
     }
 
     validateForm() {
-        console.log("Hi");
+        let enableButton = true;
+        for (var key in this.FormInfo) {
+            if (this.FormInfo[key] == null) {
+                enableButton = false;
+            }
+        }
+        enableButton ? (<HTMLButtonElement>document.getElementById("form-next-btn")).disabled = false : (<HTMLButtonElement>document.getElementById("form-next-btn")).disabled = true
     }
 
     infoNextBtn() {
-        console.log("clicked");
         var FormResult = this.formService.setFormData(this.FormInfo);
-        console.log(FormResult);
-
-        //this.router.navigate(['/upload']);
+        this.router.navigate(['/upload']);
     }
 };

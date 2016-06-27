@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { JsonDataService } from './JsonDataService';
 import { Router } from '@angular/router';
+import { FormService } from './FormService';
 
 @Component({
     selector: 'failed',
@@ -10,6 +11,7 @@ export class FailedComponent implements OnInit {
     data: any;
     router: Router;
     JsonService: JsonDataService;
+    formService: FormService;
     file: string;
     statusElements: any[];
     showPrinter: boolean;
@@ -22,11 +24,12 @@ export class FailedComponent implements OnInit {
     showMaterial: boolean;
 
 
-    constructor(dataService: JsonDataService, _router: Router) {
+    constructor(dataService: JsonDataService, _router: Router, _formService: FormService) {
         this.router = _router;
         this.JsonService = dataService;
         this.data = this.JsonService.getData();
         this.file = this.JsonService.getFileName();
+        this.formService = _formService;
         this.statusElements = [];
         console.log(this.file);
         this.showPrinter = false;
@@ -101,6 +104,11 @@ export class FailedComponent implements OnInit {
         } else {
             extrusionStatus.style.backgroundColor = "red";
         }
+
+        var FormData = this.formService.getFormData();
+        
+        window.open('mailto:sethc.dorris@gmail.com?subject=3dprinterResults&body=' + JSON.stringify(FormData));
+
     }
     elementInfo(e) {
         console.log(e);

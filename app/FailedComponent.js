@@ -11,12 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var JsonDataService_1 = require('./JsonDataService');
 var router_1 = require('@angular/router');
+var FormService_1 = require('./FormService');
 var FailedComponent = (function () {
-    function FailedComponent(dataService, _router) {
+    function FailedComponent(dataService, _router, _formService) {
         this.router = _router;
         this.JsonService = dataService;
         this.data = this.JsonService.getData();
         this.file = this.JsonService.getFileName();
+        this.formService = _formService;
         this.statusElements = [];
         console.log(this.file);
         this.showPrinter = false;
@@ -93,6 +95,8 @@ var FailedComponent = (function () {
         else {
             extrusionStatus.style.backgroundColor = "red";
         }
+        var FormData = this.formService.getFormData();
+        window.open('mailto:sethc.dorris@gmail.com?subject=3dprinterResults&body=' + JSON.stringify(FormData));
     };
     FailedComponent.prototype.elementInfo = function (e) {
         console.log(e);
@@ -129,7 +133,7 @@ var FailedComponent = (function () {
             selector: 'failed',
             templateUrl: './app/Failed.html'
         }), 
-        __metadata('design:paramtypes', [JsonDataService_1.JsonDataService, router_1.Router])
+        __metadata('design:paramtypes', [JsonDataService_1.JsonDataService, router_1.Router, FormService_1.FormService])
     ], FailedComponent);
     return FailedComponent;
 }());

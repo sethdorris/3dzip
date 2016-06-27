@@ -9,16 +9,16 @@
             </div>
             <div class="lastname">
                 Last Name:
-                <input class="form-control" id="form-lastname" type="text" [(ngModel)]="FormInfo.LastName" required/>
+                <input class="form-control" id="form-lastname" type="text" [(ngModel)]="FormInfo.LastName" (ngModelChange)="validateForm()" required/>
             </div>
         </div>
         <div class="form-group">
             PSU Email:
-            <input class="form-control" type="email" id="form-email" [(ngModel)]="FormInfo.Email" required/>
+            <input class="form-control" type="email" id="form-email" [(ngModel)]="FormInfo.Email" (ngModelChange)="validateForm()"  required/>
         </div>
         <div class="form-group">
             Faculty/Staff/Student:
-            <select class="dropdown form-control" id="form-selectPerson" [(ngModel)]="FormInfo.PersonType" required>
+            <select class="dropdown form-control" id="form-selectPerson" [(ngModel)]="FormInfo.PersonType" (ngModelChange)="validateForm()" required >
                 <option class="form-control" value="FacultyMember">Faculty Member</option>
                 <option class="form-control" value="StaffMember">Staff Member</option>
                 <option class="form-control" value="Student">Student</option>
@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             Campus
-            <select class="dropdown form-control" id="form-selectCampus" [(ngModel)]="FormInfo.Campus" required>
+            <select class="dropdown form-control" id="form-selectCampus" [(ngModel)]="FormInfo.Campus" required (ngModelChange)="validateForm()" >
                 <option class="form-control" value="UniversityPark">University Park</option>
                 <option class="form-control" value="Campus2">Campus 2</option>
                 <option class="form-control" value="Campus3">Campus 3</option>
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             Purpose for Print Request
-            <select class="dropdown form-control" id="form-Purpose" [(ngModel)]="FormInfo.Purpose" required>
+            <select class="dropdown form-control" id="form-Purpose" [(ngModel)]="FormInfo.Purpose" required (ngModelChange)="validateForm()" >
                 <option class="form-control" value="ClassAssignment">Class Assignment</option>
                 <option class="form-control" value="OtherOption">Other Option</option>
                 <option class="form-control" value="Other">Other</option>
@@ -42,7 +42,7 @@
         </div>
         <div class="form-group">
             Brief Description of Project (1 or 2 sentences):
-            <textarea class="form-control" id="projectdescription" [(ngModel)]="FormInfo.Description" required></textarea>
+            <textarea class="form-control" id="projectdescription" [(ngModel)]="FormInfo.Description" required (ngModelChange)="validateForm()"></textarea>
         </div>
         <div class="form-group nextButtonGroup">
             <button class="btn btn-default btn-primary" id="form-next-btn" (click)="infoNextBtn()" disabled>Next</button>
