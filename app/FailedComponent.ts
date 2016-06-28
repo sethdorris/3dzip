@@ -2,6 +2,8 @@
 import { JsonDataService } from './JsonDataService';
 import { Router } from '@angular/router';
 import { FormService } from './FormService';
+declare var firebase;
+
 
 @Component({
     selector: 'failed',
@@ -22,6 +24,7 @@ export class FailedComponent implements OnInit {
     showSupport: boolean;
     showInfill: boolean;
     showMaterial: boolean;
+    database;
 
 
     constructor(dataService: JsonDataService, _router: Router, _formService: FormService) {
@@ -39,6 +42,8 @@ export class FailedComponent implements OnInit {
         this.showSupport = false;
         this.showInfill = false;
         this.showMaterial = false;
+        this.database = firebase.database();
+
     }
 
     ngOnInit() {
@@ -59,6 +64,23 @@ export class FailedComponent implements OnInit {
         this.statusElements.push(infillStatus);
         this.statusElements.push(extruderStatus);
         this.statusElements.push(materialStatus);
+
+        var checkInfo = {
+            Status: "Failed",
+            Printer_Type: this.data.bot_type,
+            Extruder_Profiles: this.data.machine_config.extruder_profiles.attached_extruders,
+            Extrusion_Mass: this.data.extrusion_mass_g,
+            Rafts: this.data.miracle_config.doRaft,
+            Layer_Height: this.data.miracle_config.layerHeight,
+            Infill: this.data.miracle_config.infillDensity,
+            Material: this.data.material,
+            Support: this.data.miracle_config.doSupport
+        }
+
+        this.database.ref('/Checkups').push({
+            UserData: this.formService.getFormData(),
+            CheckData: checkInfo
+        });
 
         console.log(this.statusElements);
 
@@ -114,28 +136,28 @@ export class FailedComponent implements OnInit {
         console.log(e);
         switch (e.target.id) {
             case "printertype":
-                this.showPrinter = true;
+                this.showPrinter = false;
                 break;
             case "rafts":
-                this.showRafts = true;
+                this.showRafts = false;
                 break;
             case "extrusionmass":
-                this.showExtrusionMass = true;
+                this.showExtrusionMass = false;
                 break;
             case "layerheight":
-                this.showLayer = true;
+                this.showLayer = false;
                 break;
             case "supports":
-                this.showSupport = true;
+                this.showSupport = false;
                 break;
             case "infill":
-                this.showInfill = true;
+                this.showInfill = false;
                 break;
             case "extruder":
-                this.showExtruder = true;
+                this.showExtruder = false;
                 break;
             case "material":
-                this.showMaterial = true;
+                this.showMaterial = false;
                 break;
             default: break;
         }
