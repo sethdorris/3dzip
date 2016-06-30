@@ -29,5 +29,8 @@
         <div class="item-group">
             <div class="item">EXTRUDER:</div><div class="status" id="extruder" (click)="elementInfo($event)"></div><h6 *ngIf="showExtruder">Please recheck attached extruders in your extruder profiles.</h6>
         </div>
+        <div class="failed-button-div">
+            <button class="btn btn-default btn-primary" (click)="tryAgain()">Try again</button>
+        </div>
     </div>
 </div>

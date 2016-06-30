@@ -143,6 +143,9 @@ var FailedComponent = (function () {
             default: break;
         }
     };
+    FailedComponent.prototype.tryAgain = function () {
+        this.router.navigate(['/upload']);
+    };
     FailedComponent = __decorate([
         core_1.Component({
             selector: 'failed',

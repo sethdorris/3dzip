@@ -1,8 +1,8 @@
 ﻿<div class="container">
     <div class="failed-header">
-        <h1>3D Model Checkup</h1>
-        <h3>Checkup results for {{file}}</h3>
-        <h5>Click any red circles for recommendations</h5>
+        <h1 class="title">3D Model Checkup</h1>
+        <h3 class="subtitle">Checkup results for {{file}}</h3>
+        <h5 class="subtitle">Click any red circles for recommendations</h5>
     </div>
     <div class="items-container">
         <div class="item-group">
@@ -28,6 +28,10 @@
         </div>
         <div class="item-group">
             <div class="item">Extruder:</div><div class="status" id="extruder"></div>
+        </div>
+        <div class="success-button-div">
+            <p class="subtitle">Nice! Your results were submitted to The Maker Commons. Click below to try another file!</p>
+            <button class="btn btn-default btn-primary" (click)="tryAnother()">Let's go!</button>
         </div>
     </div>
 </div>

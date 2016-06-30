@@ -53,6 +53,9 @@ var SuccessComponent = (function () {
             CheckData: checkInfo
         });
     };
+    SuccessComponent.prototype.tryAnother = function () {
+        this.router.navigate(['']);
+    };
     SuccessComponent = __decorate([
         core_1.Component({
             selector: 'success',

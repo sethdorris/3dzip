@@ -58,4 +58,8 @@ export class SuccessComponent implements OnInit{
             CheckData: checkInfo
         });
     }
+
+    tryAnother() {
+        this.router.navigate(['']);
+    }
 }

@@ -162,4 +162,8 @@ export class FailedComponent implements OnInit {
             default: break;
         }
     }
+
+    tryAgain() {
+        this.router.navigate(['/upload']);
+    }
 }

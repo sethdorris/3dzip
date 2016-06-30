@@ -26,6 +26,22 @@
     float: right;
 }
 
+.failed-button-div {
+    text-align:center;
+}
+
+.failed-button-div > button {
+    width:70%;
+    margin-top: 5%;
+}
+
+.success-button-div {
+    text-align: center;
+}
+.success-button-div > p{
+    font-size: 11pt;
+}
+
 .subtitle {
     color: #4099e6;
     text-align: center;
